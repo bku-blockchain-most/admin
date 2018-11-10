@@ -1,40 +1,17 @@
 import React from "react";
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  CardTitle,
-  Table,
-  Row,
-  Col
-} from "reactstrap";
-import { getRecordsByUserID } from "../api";
+import { Card, CardBody, Table, Row, Col } from "reactstrap";
 import moment from "moment";
 
 const thead = ["Partner", "Time", "Note"];
 
 class RecordsTable extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      records: []
-    };
-  }
-
   render() {
-    const { userID } = this.props;
-    getRecordsByUserID(userID)
-      .then(records => this.setState({ records }))
-      .catch(err => console.log(err));
+    const { records } = this.props;
 
     return (
       <Row>
         <Col xs={12}>
           <Card>
-            {/* <CardHeader>
-              <CardTitle tag="h4">Records</CardTitle>
-            </CardHeader> */}
             <CardBody style={{ overflow: "auto", maxHeight: "80vh" }}>
               <Table size="sm" hover>
                 <thead className="text-danger">
@@ -45,7 +22,7 @@ class RecordsTable extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.records.map(u => (
+                  {records.map(u => (
                     <tr key={u.id}>
                       {/* <td> */}
                       {/* <Link to={"/polls/" + u.id}> */}

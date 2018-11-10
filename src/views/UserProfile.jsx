@@ -9,7 +9,6 @@ import {
   Col
 } from "reactstrap";
 
-import { Link } from "react-router-dom";
 import CardAuthor from "components/CardElements/CardAuthor.jsx";
 import FormInputs from "components/FormInputs/FormInputs.jsx";
 import Button from "components/CustomButton/CustomButton.jsx";
@@ -17,14 +16,15 @@ import Records from "./Records";
 
 import damirBosnjak from "assets/img/damir-bosnjak.jpg";
 
-import { getUserByUsername } from "../api";
+import { getUserByUsername, getRecordsByUserID } from "../api";
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      user: {}
+      user: {},
+      records: []
     };
   }
 
@@ -32,7 +32,12 @@ class UserProfile extends React.Component {
     const { username } = this.props.match.params || {};
     // console.log(username);
     getUserByUsername(username)
-      .then(user => this.setState({ user }))
+      .then(user => {
+        this.setState({ user });
+        getRecordsByUserID(user.id)
+          .then(records => this.setState({ records }))
+          .catch(err => console.log(err));
+      })
       .catch(err => console.log(err));
   }
 
@@ -272,7 +277,7 @@ class UserProfile extends React.Component {
                 <CardTitle>Records</CardTitle>
               </CardHeader>
               <CardBody>
-                <Records userID={user.id || ""} />
+                <Records records={this.state.records} />
               </CardBody>
             </Card>
           </Col>
