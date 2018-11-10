@@ -10,7 +10,7 @@ If you are a react developer or a react website owner that needs to work within 
 
 We like consistency and design that blends into its purpose. Paper Dashboard React is a perfect example of our most thoughtful work. It combines over a dozen components and plugins, while looking like everything fits together. For an easy start or inspiration for you project, we have also create a set of example pages, like the user settings or usage graphics.
 
-Paper Dashboard React is built using the same design language as [Paper Dashboard 2](https://www.creative-tim.com/product/paper-dashboard-2).
+Paper Dashboard React is built using the same design language as [Paper Dashboard 2](http://most.bkchain.tk/product/paper-dashboard-2).
 
 **Bootstrap 4 Support** Paper Dashboard React is built on top of the much awaited Bootstrap 4 and uses the most used react framework that implements the Bootstrap 4 components on react, reactstrap. This makes starting a new project very simple. It also provides benefits if you are already working on a Bootstrap 4 and/or reactstrap project; you can just import the Paper Dashboard React style over it. Most of the elements have been redesigned; but if you are using an element we have not touched, it will fall back to the Bootstrap default.
 
@@ -33,13 +33,13 @@ Paper Dashboard React is built using the same design language as [Paper Dashboar
 
 ## Versions
 
-[<img src="https://s3.amazonaws.com/creativetim_bucket/github/html.png" width="60" height="60" />](https://www.creative-tim.com/product/paper-dashboard-2)
-[<img src="https://s3.amazonaws.com/creativetim_bucket/github/react.svg" width="60" height="60" />](https://www.creative-tim.com/product/paper-dashboard-react)
+[<img src="https://s3.amazonaws.com/creativetim_bucket/github/html.png" width="60" height="60" />](http://most.bkchain.tk/product/paper-dashboard-2)
+[<img src="https://s3.amazonaws.com/creativetim_bucket/github/react.svg" width="60" height="60" />](http://most.bkchain.tk/product/paper-dashboard-react)
 
 
 | HTML | React |
 | --- | --- |
-| [![Paper Dashboard 2 HTML](https://s3.amazonaws.com/creativetim_bucket/products/86/thumb/opt_pd2_thumbnail.jpg)](https://www.creative-tim.com/product/paper-dashboard-2) | [![Paper Dashboard React](https://s3.amazonaws.com/creativetim_bucket/products/98/thumb/opt_pd_react_thumbnail.jpg)](https://www.creative-tim.com/product/paper-dashboard-react) |
+| [![Paper Dashboard 2 HTML](https://s3.amazonaws.com/creativetim_bucket/products/86/thumb/opt_pd2_thumbnail.jpg)](http://most.bkchain.tk/product/paper-dashboard-2) | [![Paper Dashboard React](https://s3.amazonaws.com/creativetim_bucket/products/98/thumb/opt_pd_react_thumbnail.jpg)](http://most.bkchain.tk/product/paper-dashboard-react) |
 
 ## Demo
 
@@ -57,7 +57,7 @@ Quick start options:
 - `npm i paper-dashboard-react`
 - Clone the repo: `git clone https://github.com/creativetimofficial/paper-dashboard-react.git`.
 - [Download from Github](https://github.com/creativetimofficial/paper-dashboard-react/archive/master.zip).
-- [Download from Creative Tim](https://www.creative-tim.com/product/paper-dashboard-react).
+- [Download from Creative Tim](http://most.bkchain.tk/product/paper-dashboard-react).
 
 
 ## Documentation
@@ -157,37 +157,37 @@ At present, we officially aim to support the last two versions of the following 
 
 ## Resources
 - Demo: https://demos.creative-tim.com/paper-dashboard-react/#/dashboard
-- Download Page: https://www.creative-tim.com/product/paper-dashboard-react
+- Download Page: http://most.bkchain.tk/product/paper-dashboard-react
 - Documentation: https://demos.creative-tim.com/paper-dashboard-react/#/documentation/tutorial
-- License Agreement: https://www.creative-tim.com/license
-- Support: https://www.creative-tim.com/contact-us
+- License Agreement: http://most.bkchain.tk/license
+- Support: http://most.bkchain.tk/contact-us
 - Issues: [Github Issues Page](https://github.com/creativetimofficial/paper-dashboard-react/issues)
 
 ## Reporting Issues
 We use GitHub Issues as the official bug tracker for the Paper Dashboard React. Here are some advices for our users that want to report an issue:
 
-1. Make sure that you are using the latest version of the Paper Dashboard React. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/).
+1. Make sure that you are using the latest version of the Paper Dashboard React. Check the CHANGELOG from your dashboard on our [website](http://most.bkchain.tk/).
 2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
 3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
 
 ## Technical Support or Questions
 
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us) instead of opening an issue.
+If you have questions or need help integrating the product please [contact us](http://most.bkchain.tk/contact-us) instead of opening an issue.
 
 ## Licensing
 
-- Copyright 2018 Creative Tim (https://www.creative-tim.com)
+- Copyright 2018 Creative Tim (http://most.bkchain.tk)
 - Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard-react/blob/master/LICENSE.md)
 
 ## Useful Links
 
-More products from Creative Tim: <https://www.creative-tim.com/products>
+More products from Creative Tim: <http://most.bkchain.tk/products>
 
 Tutorials: <https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w>
 
-Freebies: <https://www.creative-tim.com/products>
+Freebies: <http://most.bkchain.tk/products>
 
-Affiliate Program (earn money): <https://www.creative-tim.com/affiliates/new>
+Affiliate Program (earn money): <http://most.bkchain.tk/affiliates/new>
 
 Social Media:
 

@@ -19,13 +19,13 @@ var dashRoutes = [
     icon: "nc-icon nc-diamond",
     component: Icons
   },
-  { path: "/maps", name: "Maps", icon: "nc-icon nc-pin-3", component: Maps },
-  {
-    path: "/notifications",
-    name: "Notifications",
-    icon: "nc-icon nc-bell-55",
-    component: Notifications
-  },
+  // { path: "/maps", name: "Maps", icon: "nc-icon nc-pin-3", component: Maps },
+  // {
+  //   path: "/notifications",
+  //   name: "Notifications",
+  //   icon: "nc-icon nc-bell-55",
+  //   component: Notifications
+  // },
   {
     path: "/user-page",
     name: "User Profile",
@@ -38,18 +38,18 @@ var dashRoutes = [
     icon: "nc-icon nc-tile-56",
     component: TableList
   },
-  {
-    path: "/typography",
-    name: "Typography",
-    icon: "nc-icon nc-caps-small",
-    component: Typography
-  },
-  {
-    pro: true,
-    path: "/upgrade",
-    name: "Upgrade to PRO",
-    icon: "nc-icon nc-spaceship"
-  },
+  // {
+  //   path: "/typography",
+  //   name: "Typography",
+  //   icon: "nc-icon nc-caps-small",
+  //   component: Typography
+  // },
+  // // {
+  //   pro: true,
+  //   path: "/upgrade",
+  //   name: "Upgrade to PRO",
+  //   icon: "nc-icon nc-spaceship"
+  // },
   { redirect: true, path: "/", pathTo: "/dashboard", name: "Dashboard" }
 ];
 export default dashRoutes;
