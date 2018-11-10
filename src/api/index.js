@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:4200/api/admin";
-// const baseUrl = "http://most.bkchain.tk/api";
+// const baseUrl = "http://localhost:4200/api/admin";
+const baseUrl = "/api/admin";
 
 export const getUsers = () => {
   return axios

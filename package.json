@@ -1,8 +1,8 @@
 {
-  "name": "paper-dashboard-react",
+  "name": "",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://creativetimofficial.github.io/paper-dashboard-react/#/dashboard",
+  "homepage": "http://most.bkchain.tk",
   "dependencies": {
     "@types/react": "16.4.16",
     "axios": "^0.18.0",
