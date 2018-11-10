@@ -51,6 +51,7 @@ class Sidebar extends React.Component {
           <Nav>
             {this.props.routes.map((prop, key) => {
               if (prop.redirect) return null;
+              if (prop.noSidebar) return null;
               return (
                 <li
                   className={

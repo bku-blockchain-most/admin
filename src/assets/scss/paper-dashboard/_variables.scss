@@ -30,7 +30,7 @@ $hr-line:                    rgba(0,0,0, .1) !default;
 
 $light-gray:                 #E3E3E3 !default;
 $medium-gray:                #DDDDDD !default;
-$dark-gray:                  #9A9A9A !default;
+$dark-gray:                  rgb(85, 85, 85) !default;
 
 $table-line-color:           #ccc !default;
 $muted-color:                #a49e93 !default;
@@ -70,7 +70,7 @@ $pale-bg:                    #FFFCF5 !default;
 $medium-pale-bg:             #F1EAE0 !default;
 $default-body-bg:                 #f4f3ef !default;
 
-$primary-color:              #51cbce !default;
+$primary-color:              #e01c02 !default;
 $primary-states-color:       darken($primary-color, 10%) !default;
 
 $success-color:              #6bd098 !default;

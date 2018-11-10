@@ -9,36 +9,52 @@ import {
   Col
 } from "reactstrap";
 
+import { Link } from "react-router-dom";
 import CardAuthor from "components/CardElements/CardAuthor.jsx";
 import FormInputs from "components/FormInputs/FormInputs.jsx";
 import Button from "components/CustomButton/CustomButton.jsx";
 
 import damirBosnjak from "assets/img/damir-bosnjak.jpg";
-import mike from "assets/img/mike.jpg";
-import ayoOgunseinde2 from "assets/img/faces/ayo-ogunseinde-2.jpg";
-import joeGardner2 from "assets/img/faces/joe-gardner-2.jpg";
-import clemOnojeghuo2 from "assets/img/faces/clem-onojeghuo-2.jpg";
 
-class User extends React.Component {
+import { getUserByUsername } from "../api";
+
+class UserProfile extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user: {}
+    };
+  }
+
+  componentWillMount() {
+    const { username } = this.props.match.params || {};
+    // console.log(username);
+    getUserByUsername(username)
+      .then(user => this.setState({ user }))
+      .catch(err => console.log(err));
+  }
+
   render() {
+    const { user } = this.state;
     return (
       <div className="content">
         <Row>
           <Col md={4} xs={12}>
             <Card className="card-user">
               <div className="image">
-                <img src={damirBosnjak} alt="..." />
+                <img src={damirBosnjak} alt="Photo" />
               </div>
               <CardBody>
                 <CardAuthor
-                  avatar={mike}
+                  avatar={user.photoUrl}
                   avatarAlt="..."
-                  title="Chet Faker"
-                  description="@chetfaker"
+                  title={user.firstName + " " + user.lastName}
+                  description={"@" + user.username}
                 />
                 <p className="description text-center">
-                  "I like the way you work it <br />
-                  No diggity <br />I wanna bag it up"
+                  {user.company} <br />
+                  {user.position}
                 </p>
               </CardBody>
               <CardFooter>
@@ -78,85 +94,39 @@ class User extends React.Component {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle tag="h4">Team Members</CardTitle>
+                <CardTitle tag="h4">Contacts</CardTitle>
               </CardHeader>
               <CardBody>
                 <ul className="list-unstyled team-members">
-                  <li>
-                    <Row>
-                      <Col xs={2} md={2}>
-                        <div className="avatar">
-                          <img
-                            src={ayoOgunseinde2}
-                            alt="ayoOgunseinde2"
-                            className="img-circle img-no-padding img-responsive"
-                          />
-                        </div>
-                      </Col>
-                      <Col xs={7} md={7}>
-                        DJ Khaled
-                        <br />
-                        <span className="text-muted">
-                          <small>Offline</small>
-                        </span>
-                      </Col>
-                      <Col xs={3} md={3} className="text-right">
-                        <Button size="sm" color="success" round icon outline>
-                          <i className="fa fa-envelope" />
-                        </Button>
-                      </Col>
-                    </Row>
-                  </li>
-                  <li>
-                    <Row>
-                      <Col xs={2} md={2}>
-                        <div className="avatar">
-                          <img
-                            src={joeGardner2}
-                            alt="joeGardner2"
-                            className="img-circle img-no-padding img-responsive"
-                          />
-                        </div>
-                      </Col>
-                      <Col xs={7} md={7}>
-                        Creative Tim
-                        <br />
-                        <span className="text-success">
-                          <small>Available</small>
-                        </span>
-                      </Col>
-                      <Col xs={3} md={3} className="text-right">
-                        <Button size="sm" color="success" round icon outline>
-                          <i className="fa fa-envelope" />
-                        </Button>
-                      </Col>
-                    </Row>
-                  </li>
-                  <li>
-                    <Row>
-                      <Col xs={2} md={2}>
-                        <div className="avatar">
-                          <img
-                            src={clemOnojeghuo2}
-                            alt="clemOnojeghuo2"
-                            className="img-circle img-no-padding img-responsive"
-                          />
-                        </div>
-                      </Col>
-                      <Col xs={7} md={7}>
-                        Flume
-                        <br />
-                        <span className="text-danger">
-                          <small>Busy</small>
-                        </span>
-                      </Col>
-                      <Col xs={3} md={3} className="text-right">
-                        <Button size="sm" color="success" round icon outline>
-                          <i className="fa fa-envelope" />
-                        </Button>
-                      </Col>
-                    </Row>
-                  </li>
+                  {(user.contacts || []).map(o => (
+                    <li key={o.id}>
+                      <Row>
+                        <Col xs={2} md={2}>
+                          <div className="avatar">
+                            <img
+                              src={o.photoUrl}
+                              alt="Photo"
+                              className="img-circle img-no-padding img-responsive"
+                            />
+                          </div>
+                        </Col>
+                        <Col xs={7} md={7}>
+                          {o.firstName + " " + o.lastName}
+                          <br />
+                          <span className="text-danger">
+                            <small>@{o.username}</small>
+                          </span>
+                        </Col>
+                        <Col xs={3} md={3} className="text-right">
+                          <a href={"/users/" + o.username} target="_blank">
+                            <Button size="sm" color="danger" round icon outline>
+                              <i className="fa fa-ellipsis-h" />
+                            </Button>
+                          </a>
+                        </Col>
+                      </Row>
+                    </li>
+                  ))}
                 </ul>
               </CardBody>
             </Card>
@@ -183,13 +153,14 @@ class User extends React.Component {
                         label: "Username",
                         inputProps: {
                           type: "text",
-                          defaultValue: "chetfaker"
+                          defaultValue: user.username
                         }
                       },
                       {
                         label: "Email address",
                         inputProps: {
                           type: "email",
+                          defaultValue: user.email,
                           placeholder: "Email"
                         }
                       }
@@ -203,7 +174,7 @@ class User extends React.Component {
                         inputProps: {
                           type: "text",
                           placeholder: "First Name",
-                          defaultValue: "Chet"
+                          defaultValue: user.firstName
                         }
                       },
                       {
@@ -211,7 +182,7 @@ class User extends React.Component {
                         inputProps: {
                           type: "text",
                           placeholder: "Last Name",
-                          defaultValue: "Faker"
+                          defaultValue: user.lastName
                         }
                       }
                     ]}
@@ -220,16 +191,29 @@ class User extends React.Component {
                     ncols={["col-md-12"]}
                     proprieties={[
                       {
-                        label: "Address",
+                        label: "Company",
                         inputProps: {
                           type: "text",
-                          placeholder: "Home Address",
-                          defaultValue: "Melbourne, Australia"
+                          placeholder: "Company",
+                          defaultValue: user.company
                         }
                       }
                     ]}
                   />
                   <FormInputs
+                    ncols={["col-md-12"]}
+                    proprieties={[
+                      {
+                        label: "Position",
+                        inputProps: {
+                          type: "text",
+                          placeholder: "Position",
+                          defaultValue: user.position
+                        }
+                      }
+                    ]}
+                  />
+                  {/* <FormInputs
                     ncols={["col-md-4 pr-1", "col-md-4 px-1", "col-md-4 pl-1"]}
                     proprieties={[
                       {
@@ -256,8 +240,8 @@ class User extends React.Component {
                         }
                       }
                     ]}
-                  />
-                  <FormInputs
+                  /> */}
+                  {/* <FormInputs
                     ncols={["col-md-12"]}
                     proprieties={[
                       {
@@ -270,7 +254,7 @@ class User extends React.Component {
                         }
                       }
                     ]}
-                  />
+                  /> */}
                   <Row>
                     <div className="update ml-auto mr-auto">
                       <Button color="primary" round>
@@ -288,4 +272,4 @@ class User extends React.Component {
   }
 }
 
-export default User;
+export default UserProfile;

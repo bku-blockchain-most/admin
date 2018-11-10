@@ -9,29 +9,18 @@ import {
   Col
 } from "reactstrap";
 
+import { Link } from "react-router-dom";
 import { getUsers } from "../api";
 
 const thead = [
+  "",
   "Username",
   "Email",
   "Tel",
   "Photo",
-  // "ID",
-  "FName",
-  "LName",
-  "Company",
-  "Position"
-];
-const theadFields = [
-  "username",
-  "email",
-  "tel",
-  "photoUrl",
-  // "id",
-  "firstName",
-  "lastName",
-  "company",
-  "position"
+  "F.Name",
+  "L.Name",
+  "Company"
 ];
 
 class UsersTable extends React.Component {
@@ -57,12 +46,7 @@ class UsersTable extends React.Component {
                 <CardTitle tag="h4">Users</CardTitle>
               </CardHeader>
               <CardBody style={{ overflow: "auto", maxHeight: "80vh" }}>
-                <Table
-                  size="sm"
-                  hover
-                  onClick={() => {}}
-                  style={{ cursor: "pointer" }}
-                >
+                <Table size="sm" hover>
                   <thead className="text-danger">
                     <tr>
                       {thead.map(u => (
@@ -73,21 +57,32 @@ class UsersTable extends React.Component {
                   <tbody>
                     {this.state.users.map(u => (
                       <tr key={u.id}>
-                        {theadFields.map(i => {
-                          if (i == "photoUrl") {
-                            return (
-                              <td key={u[i]}>
-                                <img
-                                  src={u[i]}
-                                  alt="Photo"
-                                  width={32}
-                                  style={{ borderRadius: "50%" }}
-                                />
-                              </td>
-                            );
-                          }
-                          return <td key={u[i]}>{u[i]}</td>;
-                        })}
+                        <td>
+                          <Link to={"/users/" + u.username}>
+                            <i className="fa fa-link text-danger" />
+                          </Link>
+                        </td>
+                        <td>
+                          <Link
+                            to={"/users/" + u.username}
+                            style={{ color: "#176075" }}
+                          >
+                            {u.username}
+                          </Link>
+                        </td>
+                        <td>{u.email}</td>
+                        <td className="text-right">{u.tel}</td>
+                        <td className="text-center">
+                          <img
+                            src={u.photoUrl}
+                            alt="Photo"
+                            width={30}
+                            style={{ borderRadius: "50%" }}
+                          />
+                        </td>
+                        <td>{u.firstName}</td>
+                        <td>{u.lastName}</td>
+                        <td className="text-right">{u.company}</td>
                       </tr>
                     ))}
                   </tbody>
