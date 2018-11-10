@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import CardAuthor from "components/CardElements/CardAuthor.jsx";
 import FormInputs from "components/FormInputs/FormInputs.jsx";
 import Button from "components/CustomButton/CustomButton.jsx";
+import Records from "./Records";
 
 import damirBosnjak from "assets/img/damir-bosnjak.jpg";
 
@@ -49,12 +50,12 @@ class UserProfile extends React.Component {
                 <CardAuthor
                   avatar={user.photoUrl}
                   avatarAlt="..."
-                  title={user.firstName + " " + user.lastName}
+                  title={user ? user.firstName + " " + user.lastName : ""}
                   description={"@" + user.username}
                 />
                 <p className="description text-center">
-                  {user.company} <br />
-                  {user.position}
+                  {user.company || ""} <br />
+                  {user.position || ""}
                 </p>
               </CardBody>
               <CardFooter>
@@ -153,14 +154,14 @@ class UserProfile extends React.Component {
                         label: "Username",
                         inputProps: {
                           type: "text",
-                          defaultValue: user.username
+                          defaultValue: user.username || ""
                         }
                       },
                       {
                         label: "Email address",
                         inputProps: {
                           type: "email",
-                          defaultValue: user.email,
+                          defaultValue: user.email || "",
                           placeholder: "Email"
                         }
                       }
@@ -174,7 +175,7 @@ class UserProfile extends React.Component {
                         inputProps: {
                           type: "text",
                           placeholder: "First Name",
-                          defaultValue: user.firstName
+                          defaultValue: user.firstName || ""
                         }
                       },
                       {
@@ -182,7 +183,7 @@ class UserProfile extends React.Component {
                         inputProps: {
                           type: "text",
                           placeholder: "Last Name",
-                          defaultValue: user.lastName
+                          defaultValue: user.lastName || ""
                         }
                       }
                     ]}
@@ -195,7 +196,7 @@ class UserProfile extends React.Component {
                         inputProps: {
                           type: "text",
                           placeholder: "Company",
-                          defaultValue: user.company
+                          defaultValue: user.company || ""
                         }
                       }
                     ]}
@@ -208,7 +209,7 @@ class UserProfile extends React.Component {
                         inputProps: {
                           type: "text",
                           placeholder: "Position",
-                          defaultValue: user.position
+                          defaultValue: user.position || ""
                         }
                       }
                     ]}
@@ -263,6 +264,15 @@ class UserProfile extends React.Component {
                     </div>
                   </Row>
                 </form>
+              </CardBody>
+            </Card>
+
+            <Card className="card-user">
+              <CardHeader>
+                <CardTitle>Records</CardTitle>
+              </CardHeader>
+              <CardBody>
+                <Records userID={user.id || ""} />
               </CardBody>
             </Card>
           </Col>

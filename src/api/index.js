@@ -50,3 +50,15 @@ export const getUserByUsername = username => {
       return data;
     });
 };
+
+export const getRecordsByUserID = userID => {
+  return axios
+    .get(baseUrl + "/record/" + userID, {
+      headers: {}
+    })
+    .then(res => res.data)
+    .then(data => {
+      //   console.log(data);
+      return data;
+    });
+};

@@ -9,6 +9,7 @@ import Icons from "views/Icons/Icons.jsx";
 // import UserPage from "views/UserPage/UserPage.jsx";
 import UserProfile from "../views/UserProfile";
 import Votes from "../views/Votes";
+// import RecordsTable from "../views/Records";
 
 var dashRoutes = [
   {
@@ -40,12 +41,17 @@ var dashRoutes = [
     icon: "nc-icon nc-chart-bar-32",
     component: Votes
   },
-  {
-    path: "/icons",
-    name: "Icons",
-    icon: "nc-icon nc-diamond",
-    component: Icons
-  },
+  // {
+  //   noSidebar: true,
+  //   path: "/records/:userID",
+  //   component: RecordsTable
+  // },
+  // {
+  //   path: "/icons",
+  //   name: "Icons",
+  //   icon: "nc-icon nc-diamond",
+  //   component: Icons
+  // },
   // { path: "/maps", name: "Maps", icon: "nc-icon nc-pin-3", component: Maps },
   // {
   //   path: "/notifications",
