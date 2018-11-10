@@ -46,11 +46,17 @@
     }
 
    > thead > tr > th{
-       font-size: 14px;
+       font-size: 13px;
        font-weight: $font-weight-bold;
        padding-bottom: 0;
        text-transform: uppercase;
        border: 0;
+       white-space: nowrap;
+   }
+
+   > tbody > tr > td {
+     font-size: 13px;
+     white-space: nowrap;
    }
 
    .radio,
@@ -160,7 +166,7 @@
 }
 
 .table-responsive{
-  overflow: scroll;
+  overflow: auto;
   padding-bottom: 10px;
 }
 
