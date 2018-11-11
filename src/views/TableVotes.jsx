@@ -8,31 +8,30 @@ import {
   Row,
   Col
 } from "reactstrap";
-import { Link } from "react-router-dom";
-import { getPolls } from "../api";
+import { getVotes } from "../api";
 import moment from "moment";
 
 const thead = [
   "",
-  "Event ID",
-  "Owner ID",
+  "ID",
+  "User ID",
+  "Transaction Hash",
+  "Poll ID",
   "Contract Address",
   "Start Date",
-  "End Date",
-  "Title",
-  "No.Cand"
+  "End Date"
 ];
 
-class PollsTable extends React.Component {
+class TableVotes extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      polls: []
+      votes: []
     };
 
-    getPolls()
-      .then(polls => this.setState({ polls }))
+    getVotes()
+      .then(votes => this.setState({ votes }))
       .catch(err => console.log(err));
   }
 
@@ -43,7 +42,7 @@ class PollsTable extends React.Component {
           <Col xs={12}>
             <Card>
               <CardHeader>
-                <CardTitle tag="h4">Polls</CardTitle>
+                <CardTitle tag="h4">Votes</CardTitle>
               </CardHeader>
               <CardBody style={{ overflow: "auto", maxHeight: "80vh" }}>
                 <Table size="sm" hover>
@@ -55,34 +54,43 @@ class PollsTable extends React.Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {this.state.polls.map(u => (
+                    {this.state.votes.map(u => (
                       <tr key={u.id}>
                         <td>
-                          <Link to={"/polls/" + u.id}>
-                            <i className="fa fa-link text-danger" />
-                          </Link>
+                          <i className="fa fa-link text-danger" />
                         </td>
-                        <td>{u.eventID}</td>
-                        <td>{u.ownerID}</td>
+                        <td>{u.id}</td>
+                        <td>{u.userID}</td>
+                        <td>
+                          <a
+                            href={
+                              "https://ropsten.etherscan.io/tx/" + u.eth.txHash
+                            }
+                            style={{ color: "#176075" }}
+                          >
+                            {u.eth.txHash}
+                          </a>
+                        </td>
+                        <td>{u.pollID.id}</td>
                         <td>
                           <a
                             href={
                               "https://ropsten.etherscan.io/address/" +
-                              u.eth.contractAddress
+                              u.pollID.eth.contractAddress
                             }
                             style={{ color: "#176075" }}
                           >
-                            {u.eth.contractAddress}
+                            {u.pollID.eth.contractAddress}
                           </a>
                         </td>
                         <td className="text-right">
-                          {moment(u.startDate).format("HH:mm DD/MM/YYYY")}
+                          {moment(u.pollID.startDate).format(
+                            "HH:mm DD/MM/YYYY"
+                          )}
                         </td>
                         <td className="text-right">
-                          {moment(u.endDate).format("HH:mm DD/MM/YYYY")}
+                          {moment(u.pollID.endDate).format("HH:mm DD/MM/YYYY")}
                         </td>
-                        <td>{u.title}</td>
-                        <td className="text-center">{u.candidates.length}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -96,4 +104,4 @@ class PollsTable extends React.Component {
   }
 }
 
-export default PollsTable;
+export default TableVotes;

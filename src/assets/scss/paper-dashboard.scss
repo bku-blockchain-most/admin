@@ -1,15 +1,15 @@
 /*!
 
- =========================================================
+=========================================================
  * Paper Dashboard React - v1.0.0 based on Paper Dashboard 2 - v2.0.0
- =========================================================
+=========================================================
 
  * Product Page: http://most.bkchain.tk/product/paper-dashboard-2
  * Copyright 2018 Creative Tim (http://www.creative-tim.com)
 
  * Designed by www.invisionapp.com Coded by www.creative-tim.com
 
- =========================================================
+=========================================================
 
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
@@ -29,8 +29,7 @@
 @import "paper-dashboard/misc";
 @import "paper-dashboard/checkboxes-radio";
 
-
-// components
+// Components
 @import "paper-dashboard/navbar";
 @import "paper-dashboard/page-header";
 @import "paper-dashboard/dropdown";
@@ -42,7 +41,7 @@
 @import "paper-dashboard/footers";
 @import "paper-dashboard/fixed-plugin";
 
-// cards
+// Cards
 @import "paper-dashboard/cards";
 @import "paper-dashboard/cards/card-plain";
 @import "paper-dashboard/cards/card-chart";
@@ -50,11 +49,9 @@
 @import "paper-dashboard/cards/card-map";
 @import "paper-dashboard/cards/card-stats";
 
+// Responsive
 @import "paper-dashboard/responsive";
 
+// Override template
 
-// Override
-
-a {
-  text-decoration: none !important;
-}
+@import "custom.scss";

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const baseUrl = "http://localhost:4200/api/admin";
 const baseUrl = "/api/admin";
+// set proxy in package.json, use localhost:4200 for development
 
 export const getUsers = () => {
   return axios
@@ -10,7 +10,7 @@ export const getUsers = () => {
     })
     .then(res => res.data)
     .then(data => {
-      //   console.log(data);
+      // console.log(data);
       return data;
     });
 };
@@ -22,7 +22,7 @@ export const getPolls = () => {
     })
     .then(res => res.data)
     .then(data => {
-      //   console.log(data);
+      // console.log(data);
       return data;
     });
 };
@@ -34,7 +34,7 @@ export const getVotes = () => {
     })
     .then(res => res.data)
     .then(data => {
-      //   console.log(data);
+      console.log(data);
       return data;
     });
 };
@@ -46,7 +46,7 @@ export const getUserByUsername = username => {
     })
     .then(res => res.data)
     .then(data => {
-      //   console.log(data);
+      // console.log(data);
       return data;
     });
 };
@@ -58,7 +58,7 @@ export const getRecordsByUserID = userID => {
     })
     .then(res => res.data)
     .then(data => {
-      //   console.log(data);
+      // console.log(data);
       return data;
     });
 };

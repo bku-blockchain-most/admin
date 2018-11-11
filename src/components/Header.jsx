@@ -17,8 +17,7 @@ import {
   InputGroupAddon,
   Input
 } from "reactstrap";
-
-import dashboardRoutes from "routes/dashboard.jsx";
+import { dashboardRoutes } from "../routes/dashboard";
 
 class Header extends React.Component {
   constructor(props) {

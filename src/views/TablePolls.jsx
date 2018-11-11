@@ -8,31 +8,31 @@ import {
   Row,
   Col
 } from "reactstrap";
-
 import { Link } from "react-router-dom";
-import { getUsers } from "../api";
+import { getPolls } from "../api";
+import moment from "moment";
 
 const thead = [
   "",
-  "Username",
-  "Email",
-  "Tel",
-  "Photo",
-  "F.Name",
-  "L.Name",
-  "Company"
+  "Event ID",
+  "Owner ID",
+  "Contract Address",
+  "Start Date",
+  "End Date",
+  "No.Cand",
+  "Title"
 ];
 
-class UsersTable extends React.Component {
+class TablePolls extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      users: []
+      polls: []
     };
 
-    getUsers()
-      .then(users => this.setState({ users }))
+    getPolls()
+      .then(polls => this.setState({ polls }))
       .catch(err => console.log(err));
   }
 
@@ -43,7 +43,7 @@ class UsersTable extends React.Component {
           <Col xs={12}>
             <Card>
               <CardHeader>
-                <CardTitle tag="h4">Users</CardTitle>
+                <CardTitle tag="h4">Polls</CardTitle>
               </CardHeader>
               <CardBody style={{ overflow: "auto", maxHeight: "80vh" }}>
                 <Table size="sm" hover>
@@ -55,34 +55,34 @@ class UsersTable extends React.Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {this.state.users.map(u => (
+                    {this.state.polls.map(u => (
                       <tr key={u.id}>
                         <td>
-                          <Link to={"/users/" + u.username}>
+                          <Link to={"/polls/" + u.id}>
                             <i className="fa fa-link text-danger" />
                           </Link>
                         </td>
+                        <td>{u.eventID}</td>
+                        <td>{u.ownerID}</td>
                         <td>
-                          <Link
-                            to={"/users/" + u.username}
+                          <a
+                            href={
+                              "https://ropsten.etherscan.io/address/" +
+                              u.eth.contractAddress
+                            }
                             style={{ color: "#176075" }}
                           >
-                            {u.username}
-                          </Link>
+                            {u.eth.contractAddress}
+                          </a>
                         </td>
-                        <td>{u.email}</td>
-                        <td className="text-right">{u.tel}</td>
-                        <td className="text-center">
-                          <img
-                            src={u.photoUrl}
-                            alt="Photo"
-                            width={30}
-                            style={{ borderRadius: "50%" }}
-                          />
+                        <td className="text-right">
+                          {moment(u.startDate).format("HH:mm DD/MM/YYYY")}
                         </td>
-                        <td>{u.firstName}</td>
-                        <td>{u.lastName}</td>
-                        <td className="text-right">{u.company}</td>
+                        <td className="text-right">
+                          {moment(u.endDate).format("HH:mm DD/MM/YYYY")}
+                        </td>
+                        <td className="text-center">{u.candidates.length}</td>
+                        <td>{u.title}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -96,4 +96,4 @@ class UsersTable extends React.Component {
   }
 }
 
-export default UsersTable;
+export default TablePolls;

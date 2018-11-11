@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
 
-import icons from "variables/icons";
+import icons from "../variables/icons";
 
 class Icons extends React.Component {
   render() {

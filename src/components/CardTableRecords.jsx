@@ -4,7 +4,7 @@ import moment from "moment";
 
 const thead = ["Partner", "Time", "Note"];
 
-class RecordsTable extends React.Component {
+class CardTableRecords extends React.Component {
   render() {
     const { records } = this.props;
 
@@ -24,11 +24,6 @@ class RecordsTable extends React.Component {
                 <tbody>
                   {records.map(u => (
                     <tr key={u.id}>
-                      {/* <td> */}
-                      {/* <Link to={"/polls/" + u.id}> */}
-                      {/* <i className="fa fa-link text-danger" /> */}
-                      {/* </Link> */}
-                      {/* </td> */}
                       <td>{u.partner.username}</td>
                       <td>{moment(u.time).format("HH:mm DD/MM/YYYY")}</td>
                       <td>{u.note}</td>
@@ -44,4 +39,4 @@ class RecordsTable extends React.Component {
   }
 }
 
-export default RecordsTable;
+export default CardTableRecords;

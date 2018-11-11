@@ -9,12 +9,12 @@ import {
   Col
 } from "reactstrap";
 
-import CardAuthor from "components/CardElements/CardAuthor.jsx";
-import FormInputs from "components/FormInputs/FormInputs.jsx";
-import Button from "components/CustomButton/CustomButton.jsx";
-import Records from "./Records";
+import CardAuthor from "../components/CardAuthor.jsx";
+import FormInputs from "../components/FormInputs.jsx";
+import Button from "../components/CustomButton.jsx";
+import CardTableRecords from "../components/CardTableRecords";
 
-import damirBosnjak from "assets/img/damir-bosnjak.jpg";
+import bannerAvatar from "../assets/img/banner_avatar.jpg";
 
 import { getUserByUsername, getRecordsByUserID } from "../api";
 
@@ -30,10 +30,11 @@ class UserProfile extends React.Component {
 
   componentWillMount() {
     const { username } = this.props.match.params || {};
-    // console.log(username);
+
     getUserByUsername(username)
       .then(user => {
         this.setState({ user });
+
         getRecordsByUserID(user.id)
           .then(records => this.setState({ records }))
           .catch(err => console.log(err));
@@ -43,20 +44,21 @@ class UserProfile extends React.Component {
 
   render() {
     const { user } = this.state;
+
     return (
       <div className="content">
         <Row>
           <Col md={4} xs={12}>
             <Card className="card-user">
               <div className="image">
-                <img src={damirBosnjak} alt="Photo" />
+                <img src={bannerAvatar} alt="Banner" />
               </div>
               <CardBody>
                 <CardAuthor
-                  avatar={user.photoUrl}
+                  avatar={user.photoUrl || "/default-avatar.png"}
                   avatarAlt="..."
                   title={user ? user.firstName + " " + user.lastName : ""}
-                  description={"@" + user.username}
+                  description={"@" + user.username || ""}
                 />
                 <p className="description text-center">
                   {user.company || ""} <br />
@@ -110,21 +112,25 @@ class UserProfile extends React.Component {
                         <Col xs={2} md={2}>
                           <div className="avatar">
                             <img
-                              src={o.photoUrl}
-                              alt="Photo"
+                              src={o.photoUrl || "/default-avatar.png"}
+                              alt="Avatar"
                               className="img-circle img-no-padding img-responsive"
                             />
                           </div>
                         </Col>
                         <Col xs={7} md={7}>
-                          {o.firstName + " " + o.lastName}
+                          {(o.firstName || "") + " " + (o.lastName || "")}
                           <br />
                           <span className="text-danger">
-                            <small>@{o.username}</small>
+                            <small>@{o.username || ""}</small>
                           </span>
                         </Col>
                         <Col xs={3} md={3} className="text-right">
-                          <a href={"/users/" + o.username} target="_blank">
+                          <a
+                            href={"/users/" + o.username}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <Button size="sm" color="danger" round icon outline>
                               <i className="fa fa-ellipsis-h" />
                             </Button>
@@ -148,11 +154,11 @@ class UserProfile extends React.Component {
                     ncols={["col-md-5 pr-1", "col-md-3 px-1", "col-md-4 pl-1"]}
                     proprieties={[
                       {
-                        label: "Company (disabled)",
+                        label: "Organization",
                         inputProps: {
                           type: "text",
                           disabled: true,
-                          defaultValue: "Creative Code Inc."
+                          defaultValue: "BKU Blockchain Inc."
                         }
                       },
                       {
@@ -277,7 +283,7 @@ class UserProfile extends React.Component {
                 <CardTitle>Records</CardTitle>
               </CardHeader>
               <CardBody>
-                <Records records={this.state.records} />
+                <CardTableRecords records={this.state.records} />
               </CardBody>
             </Card>
           </Col>

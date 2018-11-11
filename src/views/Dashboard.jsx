@@ -8,17 +8,16 @@ import {
   Row,
   Col
 } from "reactstrap";
+
 // react plugin used to create charts
 import { Line, Pie } from "react-chartjs-2";
-// function that returns a color based on an interval of numbers
-
-import Stats from "components/Stats/Stats.jsx";
+import Stats from "../components/Stats";
 
 import {
   dashboard24HoursPerformanceChart,
   dashboardEmailStatisticsChart,
   dashboardNASDAQChart
-} from "variables/charts.jsx";
+} from "../variables/charts";
 
 class Dashboard extends React.Component {
   render() {
