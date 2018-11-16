@@ -2,7 +2,7 @@
   "name": "admin-dashboard-most",
   "version": "1.0.1",
   "private": true,
-  "homepage": "http://most.bkchain.tk",
+  "homepage": "http://admin.most.bkchain.tk",
   "proxy": "http://localhost:4200",
   "dependencies": {
     "@types/react": "16.4.16",
