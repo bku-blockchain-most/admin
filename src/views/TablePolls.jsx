@@ -44,6 +44,14 @@ class TablePolls extends React.Component {
             <Card>
               <CardHeader>
                 <CardTitle tag="h4">Polls</CardTitle>
+                {/* <Button color="danger"> */}
+                <Link
+                  to={"/polls/create"}
+                  className="btn btn-primary btn-round"
+                >
+                  Add
+                </Link>
+                {/* </Button> */}
               </CardHeader>
               <CardBody style={{ overflow: "auto", maxHeight: "80vh" }}>
                 <Table size="sm" hover>

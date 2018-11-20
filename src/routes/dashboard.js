@@ -7,6 +7,7 @@ import TableVotes from "../views/TableVotes";
 import TableEvents from "../views/TableEvents";
 import TableVillages from "../views/TableVillages";
 import TableBooths from "../views/TableBooths";
+import FormAddPoll from "../views/FormAddPoll";
 // import Notifications from "views/Notifications/Notifications.jsx";
 // import Typography from "views/Typography/Typography.jsx";
 // import Maps from "views/Maps/Maps.jsx";
@@ -21,6 +22,7 @@ export const dashboardRoutes = [
   },
   {
     noSidebar: true,
+    name: "User Profile",
     path: "/users/:username",
     component: UserProfile
   },
@@ -47,6 +49,12 @@ export const dashboardRoutes = [
     name: "Booths",
     icon: "nc-icon nc-shop",
     component: TableBooths
+  },
+  {
+    noSidebar: true,
+    name: "Form Poll",
+    path: "/polls/create",
+    component: FormAddPoll
   },
   {
     path: "/polls",

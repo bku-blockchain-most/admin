@@ -99,3 +99,16 @@ export const getRecordsByUserID = userID => {
       return data;
     });
 };
+
+/**
+ * @param data: { eventID, ownerID, title, description, photoUrl, startDate, endDate, candidates }
+ * */
+export const createPoll = data => {
+  return axios
+    .post(baseUrl + "/poll", data)
+    .then(res => res.data)
+    .then(data => {
+      console.log(data);
+      return data;
+    });
+};

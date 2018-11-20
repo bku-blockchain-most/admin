@@ -24,7 +24,7 @@ class TableRecords extends React.Component {
                 <tbody>
                   {records.map(u => (
                     <tr key={u.id}>
-                      <td>{u.partner.username}</td>
+                      <td>{(u.partner || {}).username}</td>
                       <td>{moment(u.time).format("HH:mm DD/MM/YYYY")}</td>
                       <td>{u.note}</td>
                     </tr>

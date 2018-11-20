@@ -39,9 +39,15 @@ class TableEvents extends React.Component {
                 <Table size="sm" hover>
                   <thead className="text-danger">
                     <tr>
-                      {thead.map(u => (
-                        <th key={u}>{u}</th>
-                      ))}
+                      {thead.map((u, i) =>
+                        i === thead.length - 1 ? (
+                          <th key={u} className="text-right">
+                            {u}
+                          </th>
+                        ) : (
+                          <th key={u}>{u}</th>
+                        )
+                      )}
                     </tr>
                   </thead>
                   <tbody>

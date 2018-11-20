@@ -57,7 +57,7 @@ class UserProfile extends React.Component {
                 <CardAuthor
                   avatar={user.photoUrl || "/default-avatar.png"}
                   avatarAlt="..."
-                  title={user ? user.firstName + " " + user.lastName : ""}
+                  title={(user.firstName || "") + " " + (user.lastName || "")}
                   description={"@" + user.username || ""}
                 />
                 <p className="description text-center">
