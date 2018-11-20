@@ -1,8 +1,8 @@
 import axios from "axios";
 
-// const baseUrl = "http://api.most.bkchain.tk/admin";
-const baseUrl = "/admin";
-// set proxy in package.json, use localhost:4200 for development
+const baseUrl = "http://api.most.bkchain.tk/admin";
+// const baseUrl = "/admin";
+// set proxy in package.json, use localhost:8001 for development
 
 export const getUsers = () => {
   return axios
