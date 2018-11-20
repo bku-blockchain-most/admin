@@ -40,6 +40,42 @@ export const getVotes = () => {
     });
 };
 
+export const getEvents = () => {
+  return axios
+    .get(baseUrl + "/event", {
+      headers: {}
+    })
+    .then(res => res.data)
+    .then(data => {
+      console.log(data);
+      return data;
+    });
+};
+
+export const getVillages = () => {
+  return axios
+    .get(baseUrl + "/village", {
+      headers: {}
+    })
+    .then(res => res.data)
+    .then(data => {
+      console.log(data);
+      return data;
+    });
+};
+
+export const getBooths = () => {
+  return axios
+    .get(baseUrl + "/booth", {
+      headers: {}
+    })
+    .then(res => res.data)
+    .then(data => {
+      console.log(data);
+      return data;
+    });
+};
+
 export const getUserByUsername = username => {
   return axios
     .get(baseUrl + "/user/" + username, {

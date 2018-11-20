@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "private": true,
   "homepage": "http://admin.most.bkchain.tk",
-  "proxy": "http://localhost:4200",
+  "proxy": "http://localhost:8001",
   "dependencies": {
     "@types/react": "16.4.16",
     "axios": "^0.18.0",

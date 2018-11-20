@@ -4,9 +4,13 @@ import TableUsers from "../views/TableUsers";
 // import TableRecords from "../views/TableRecords";
 import TablePolls from "../views/TablePolls";
 import TableVotes from "../views/TableVotes";
+import TableEvents from "../views/TableEvents";
+import TableVillages from "../views/TableVillages";
+import TableBooths from "../views/TableBooths";
 // import Notifications from "views/Notifications/Notifications.jsx";
 // import Typography from "views/Typography/Typography.jsx";
 // import Maps from "views/Maps/Maps.jsx";
+// import Icons from "../views/Icons";
 
 export const dashboardRoutes = [
   {
@@ -25,6 +29,24 @@ export const dashboardRoutes = [
     name: "Users",
     icon: "nc-icon nc-badge",
     component: TableUsers
+  },
+  {
+    path: "/events",
+    name: "Events",
+    icon: "nc-icon nc-calendar-60",
+    component: TableEvents
+  },
+  {
+    path: "/villages",
+    name: "Villages",
+    icon: "nc-icon nc-pin-3",
+    component: TableVillages
+  },
+  {
+    path: "/booths",
+    name: "Booths",
+    icon: "nc-icon nc-shop",
+    component: TableBooths
   },
   {
     path: "/polls",
