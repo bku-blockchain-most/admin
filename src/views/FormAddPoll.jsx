@@ -12,6 +12,9 @@ import {
   ModalFooter
 } from "reactstrap";
 
+import "react-datepicker/dist/react-datepicker.css";
+
+import DatePicker from "react-datepicker";
 import FormInputs from "../components/FormInputs.jsx";
 import Button from "../components/CustomButton.jsx";
 import { createPoll } from "../api/index.js";
@@ -29,7 +32,7 @@ class FormAddPoll extends React.Component {
       title: "",
       description: "",
       startDate: new Date(),
-      endDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+      endDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 3),
       candidates: [],
       txHash: "",
       loading: false,
@@ -152,7 +155,48 @@ class FormAddPoll extends React.Component {
                       }
                     ]}
                   />
-                  <CardTitle className="h6">Candidates</CardTitle>
+                  <div className="row">
+                    <div className="col-6">
+                      <span className="mr-4">Start Date:</span>
+                      <DatePicker
+                        selectsStart
+                        selected={this.state.startDate}
+                        minDate={this.state.startDate}
+                        startDate={this.state.startDate}
+                        endDate={this.state.endDate}
+                        onChange={date => {
+                          this.setState({ startDate: date });
+                        }}
+                        timeFormat="HH:mm"
+                        showTimeSelect
+                        timeIntervals={15}
+                        dateFormat="MMMM d, yyyy HH:mm"
+                        timeCaption="Time"
+                        className="form-control"
+                      />
+                    </div>
+                    <div className="col-6">
+                      <span className="mr-4">End Date:</span>
+                      <DatePicker
+                        selectsEnd
+                        selected={this.state.endDate}
+                        minDate={this.state.startDate}
+                        startDate={this.state.startDate}
+                        endDate={this.state.endDate}
+                        onChange={date => {
+                          this.setState({ endDate: date });
+                        }}
+                        timeFormat="HH:mm"
+                        showTimeSelect
+                        timeIntervals={15}
+                        dateFormat="MMMM d, yyyy HH:mm"
+                        timeCaption="Time"
+                        className="form-control"
+                      />
+                    </div>
+                  </div>
+
+                  <CardTitle className="h6 mt-5">Candidates</CardTitle>
                   {this.state.candidates.map(o => (
                     <div key={o.key} className="row">
                       <div className="col-11">
