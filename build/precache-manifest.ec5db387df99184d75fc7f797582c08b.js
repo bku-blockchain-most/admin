@@ -4,12 +4,12 @@ self.__precacheManifest = [
     "url": "/static/media/logo_white.181c89d7.png"
   },
   {
-    "revision": "1e93a2acf31399f515c3",
-    "url": "/static/css/main.f55683b9.chunk.css"
+    "revision": "d14fe364509f3b10005e",
+    "url": "/static/css/main.37b1648f.chunk.css"
   },
   {
-    "revision": "6836b93bf1af0b571928d98458a68445",
-    "url": "/static/media/nucleo-icons.6836b93b.woff"
+    "revision": "f32ed5ad3d76067b8e43be1a0bd1ba91",
+    "url": "/static/media/nucleo-icons.f32ed5ad.eot"
   },
   {
     "revision": "84f7bd07ab869f897d00",
@@ -24,16 +24,16 @@ self.__precacheManifest = [
     "url": "/static/media/banner_avatar.a6f24e7d.jpg"
   },
   {
-    "revision": "1e93a2acf31399f515c3",
-    "url": "/static/js/main.1e93a2ac.chunk.js"
-  },
-  {
-    "revision": "f32ed5ad3d76067b8e43be1a0bd1ba91",
-    "url": "/static/media/nucleo-icons.f32ed5ad.eot"
+    "revision": "d14fe364509f3b10005e",
+    "url": "/static/js/main.d14fe364.chunk.js"
   },
   {
     "revision": "5c78b4cf03771fd2287325c44f0d3cd9",
     "url": "/static/media/nucleo-icons.5c78b4cf.woff2"
+  },
+  {
+    "revision": "6836b93bf1af0b571928d98458a68445",
+    "url": "/static/media/nucleo-icons.6836b93b.woff"
   },
   {
     "revision": "48ac036da7c7923266266f63746fc5f1",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/static/css/1.0f4d6180.chunk.css"
   },
   {
-    "revision": "d24cf7eb7827d1911eb6345fc82ae044",
+    "revision": "1dba05279530acabfb45e1e9bf48ebae",
     "url": "/index.html"
   }
 ];
