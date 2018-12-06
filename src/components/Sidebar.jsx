@@ -38,12 +38,12 @@ class Sidebar extends React.Component {
         data-active-color={this.props.activeColor}
       >
         <div className="logo">
-          <a href="http://most.bkchain.tk" className="simple-text logo-mini">
+          <a href="http://lab.bkchain.tk" className="simple-text logo-mini">
             <div className="logo-img">
-              <img src={logo} alt="most-logo" />
+              <img src={logo} alt="lab-logo" />
             </div>
           </a>
-          <a href="http://most.bkchain.tk" className="simple-text logo-normal">
+          <a href="http://lab.bkchain.tk" className="simple-text logo-normal">
             BKU Blockchain
           </a>
         </div>

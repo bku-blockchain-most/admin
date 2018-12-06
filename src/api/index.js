@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// const baseUrl = "http://api.most.bkchain.tk/admin";
+// const baseUrl = "http://api.lab.bkchain.tk/admin";
 const baseUrl = "/admin";
 // set proxy in package.json, use localhost:8001 for development
 

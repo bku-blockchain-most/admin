@@ -1,4 +1,4 @@
-# Admin Dashboard - View MoST database
+# Admin Dashboard
 
 ## Quick start
 
@@ -15,4 +15,4 @@ At present, we officially aim to support the last two versions of the following 
 
 ## Licensing
 
-- Copyright 2018 BKU Blockchain (http://most.bkchain.tk)
+- Copyright 2018 BKU Blockchain Lab (http://lab.bkchain.tk)

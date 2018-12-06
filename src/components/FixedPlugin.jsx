@@ -114,7 +114,7 @@ class FixedPlugin extends Component {
             </li>
             <li className="button-container">
               <Button
-                href="http://most.bkchain.tk/product/paper-dashboard-react"
+                href="http://lab.bkchain.tk/product/paper-dashboard-react"
                 color="primary"
                 block
                 round
@@ -124,7 +124,7 @@ class FixedPlugin extends Component {
             </li>
             <li className="button-container">
               <Button
-                href="http://most.bkchain.tk/product/paper-dashboard-react/#/documentation/tutorial"
+                href="http://lab.bkchain.tk/product/paper-dashboard-react/#/documentation/tutorial"
                 color="default"
                 block
                 round
@@ -136,7 +136,7 @@ class FixedPlugin extends Component {
             <li className="header-title">Want more components?</li>
             <li className="button-container">
               <Button
-                href="http://most.bkchain.tk/product/paper-dashboard-pro-react"
+                href="http://lab.bkchain.tk/product/paper-dashboard-pro-react"
                 color="danger"
                 block
                 round

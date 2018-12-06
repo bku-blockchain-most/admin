@@ -15,13 +15,13 @@ class Footer extends React.Component {
             <nav className="footer-nav">
               <ul>
                 <li>
-                  <a href="http://most.bkchain.tk" target="_blank">BKU Blockchain</a>
+                  <a href="http://lab.bkchain.tk" target="_blank">BKU Blockchain</a>
                 </li>
                 <li>
                   <a href="https://blog.creative-tim.com" target="_blank">Blog</a>
                 </li>
                 <li>
-                  <a href="http://most.bkchain.tk/license" target="_blank">Licenses</a>
+                  <a href="http://lab.bkchain.tk/license" target="_blank">Licenses</a>
                 </li>
               </ul>
             </nav>

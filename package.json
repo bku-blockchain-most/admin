@@ -1,8 +1,8 @@
 {
-  "name": "admin-dashboard-most",
+  "name": "admin-dashboard-bkchainlab",
   "version": "1.0.1",
   "private": true,
-  "homepage": "http://admin.most.bkchain.tk",
+  "homepage": "http://admin.lab.bkchain.tk",
   "proxy": "http://localhost:8001",
   "dependencies": {
     "@types/react": "16.4.16",
