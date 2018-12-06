@@ -1,5 +1,9 @@
 # Admin Dashboard
 
+Admin site is served at:
++ http://lab.bkchain.tk
++ http://admin.lab.bkchain.tk
+
 ## Quick start
 
 ## Documentation
