@@ -10,20 +10,24 @@ import {
 } from "reactstrap";
 import { getEvents } from "../api";
 import moment from "moment";
+import HorizontalLoading from "../components/HorizontalLoading";
 
-const thead = ["", "Name", "Organizer", "Title", "Start Date"];
+const thead = ["Name", "Organizer", "Title", "Start Date"];
 
 class TableEvents extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      events: []
+      events: [],
+      loading: true
     };
 
-    getEvents()
-      .then(events => this.setState({ events }))
-      .catch(err => console.log(err));
+    setTimeout(() => {
+      getEvents()
+        .then(events => this.setState({ events, loading: false }))
+        .catch(err => console.log(err));
+    }, 200);
   }
 
   render() {
@@ -35,39 +39,40 @@ class TableEvents extends React.Component {
               <CardHeader>
                 <CardTitle tag="h4">Events</CardTitle>
               </CardHeader>
-              <CardBody style={{ overflow: "auto", maxHeight: "80vh" }}>
-                <Table size="sm" hover>
-                  <thead className="text-danger">
-                    <tr>
-                      {thead.map((u, i) =>
-                        i === thead.length - 1 ? (
-                          <th key={u} className="text-right">
-                            {u}
-                          </th>
-                        ) : (
-                          <th key={u}>{u}</th>
-                        )
-                      )}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {this.state.events.map(u => (
-                      <tr key={u.id}>
-                        <td>
-                          {/* <Link to={"/events/" + u.id}> */}
-                          <i className="fa fa-link text-danger" />
-                          {/* </Link> */}
-                        </td>
-                        <td>{u.event_name}</td>
-                        <td>{u.organizer}</td>
-                        <td>{u.title}</td>
-                        <td className="text-right">
-                          {moment(u.starting_date).format("HH:mm DD/MM/YYYY")}
-                        </td>
+              <CardBody style={{ overflow: "auto" }}>
+                <HorizontalLoading
+                  visible={this.state.loading}
+                  style={{ marginBottom: 30 }}
+                />
+                {!this.state.loading && (
+                  <Table size="sm" hover>
+                    <thead className="text-danger">
+                      <tr>
+                        {thead.map((u, i) =>
+                          i === thead.length - 1 ? (
+                            <th key={u} className="">
+                              {u}
+                            </th>
+                          ) : (
+                            <th key={u}>{u}</th>
+                          )
+                        )}
                       </tr>
-                    ))}
-                  </tbody>
-                </Table>
+                    </thead>
+                    <tbody>
+                      {this.state.events.map(u => (
+                        <tr key={u.id}>
+                          <td>{u.event_name}</td>
+                          <td>{u.organizer}</td>
+                          <td>{u.title}</td>
+                          <td className="">
+                            {moment(u.starting_date).format("HH:mm DD/MM/YYYY")}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                )}
               </CardBody>
             </Card>
           </Col>

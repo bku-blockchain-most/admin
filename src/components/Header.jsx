@@ -18,6 +18,7 @@ import {
   Input
 } from "reactstrap";
 import { dashboardRoutes } from "../routes/dashboard";
+import { logout } from "../api";
 
 class Header extends React.Component {
   constructor(props) {
@@ -157,14 +158,14 @@ class Header extends React.Component {
               </InputGroup>
             </form>
             <Nav navbar>
-              <NavItem>
+              {/* <NavItem>
                 <Link to="#pablo" className="nav-link btn-magnify">
                   <i className="nc-icon nc-layout-11" />
                   <p>
                     <span className="d-lg-none d-md-block">Stats</span>
                   </p>
                 </Link>
-              </NavItem>
+              </NavItem> */}
               <Dropdown
                 nav
                 isOpen={this.state.dropdownOpen}
@@ -177,18 +178,38 @@ class Header extends React.Component {
                   </p>
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem tag="a">Action</DropdownItem>
-                  <DropdownItem tag="a">Another Action</DropdownItem>
-                  <DropdownItem tag="a">Something else here</DropdownItem>
+                  <DropdownItem tag="a">You have a new message</DropdownItem>
+                  <DropdownItem tag="a">Important!</DropdownItem>
+                  <DropdownItem tag="a">
+                    New release mobile application on Android
+                  </DropdownItem>
+                  <DropdownItem tag="a">
+                    New release mobile application on iOS
+                  </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
               <NavItem>
-                <Link to="#pablo" className="nav-link btn-rotate">
+                <Link to="#settings" className="nav-link btn-rotate">
                   <i className="nc-icon nc-settings-gear-65" />
                   <p>
                     <span className="d-lg-none d-md-block">Account</span>
                   </p>
                 </Link>
+              </NavItem>
+              <NavItem
+                onClick={() => {
+                  if (window.confirm("Do you want to logout?")) logout();
+                }}
+              >
+                <a
+                  className="nav-link btn-rotate"
+                  style={{ cursor: "pointer" }}
+                >
+                  <i className="nc-icon nc-lock-circle-open" />
+                  <p>
+                    <span className="d-md-block">Logout</span>
+                  </p>
+                </a>
               </NavItem>
             </Nav>
           </Collapse>

@@ -10,9 +10,9 @@ import {
 } from "reactstrap";
 import { getVotes } from "../api";
 import moment from "moment";
+import HorizontalLoading from "../components/HorizontalLoading";
 
 const thead = [
-  "",
   "ID",
   "User ID",
   "Transaction Hash",
@@ -27,12 +27,15 @@ class TableVotes extends React.Component {
     super(props);
 
     this.state = {
-      votes: []
+      votes: [],
+      loading: true
     };
 
-    getVotes()
-      .then(votes => this.setState({ votes }))
-      .catch(err => console.log(err));
+    setTimeout(() => {
+      getVotes()
+        .then(votes => this.setState({ votes, loading: false }))
+        .catch(err => console.log(err));
+    }, 200);
   }
 
   render() {
@@ -45,56 +48,62 @@ class TableVotes extends React.Component {
                 <CardTitle tag="h4">Votes</CardTitle>
               </CardHeader>
               <CardBody style={{ overflow: "auto", maxHeight: "80vh" }}>
-                <Table size="sm" hover>
-                  <thead className="text-danger">
-                    <tr>
-                      {thead.map(u => (
-                        <th key={u}>{u}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {this.state.votes.map(u => (
-                      <tr key={u.id}>
-                        <td>
-                          <i className="fa fa-link text-danger" />
-                        </td>
-                        <td>{u.id}</td>
-                        <td>{u.userID}</td>
-                        <td>
-                          <a
-                            href={
-                              "https://ropsten.etherscan.io/tx/" + u.eth.txHash
-                            }
-                            style={{ color: "#176075" }}
-                          >
-                            {u.eth.txHash}
-                          </a>
-                        </td>
-                        <td>{u.pollID.id}</td>
-                        <td>
-                          <a
-                            href={
-                              "https://ropsten.etherscan.io/address/" +
-                              u.pollID.eth.contractAddress
-                            }
-                            style={{ color: "#176075" }}
-                          >
-                            {u.pollID.eth.contractAddress}
-                          </a>
-                        </td>
-                        <td className="text-right">
-                          {moment(u.pollID.startDate).format(
-                            "HH:mm DD/MM/YYYY"
-                          )}
-                        </td>
-                        <td className="text-right">
-                          {moment(u.pollID.endDate).format("HH:mm DD/MM/YYYY")}
-                        </td>
+                <HorizontalLoading
+                  visible={this.state.loading}
+                  style={{ marginBottom: 30 }}
+                />
+                {!this.state.loading && (
+                  <Table size="sm" hover>
+                    <thead className="text-danger">
+                      <tr>
+                        {thead.map(u => (
+                          <th key={u}>{u}</th>
+                        ))}
                       </tr>
-                    ))}
-                  </tbody>
-                </Table>
+                    </thead>
+                    <tbody>
+                      {this.state.votes.map(u => (
+                        <tr key={u.id}>
+                          <td>{u.id}</td>
+                          <td>{u.userID}</td>
+                          <td>
+                            <a
+                              href={
+                                "https://ropsten.etherscan.io/tx/" +
+                                u.eth.txHash
+                              }
+                              style={{ color: "#176075" }}
+                            >
+                              {u.eth.txHash}
+                            </a>
+                          </td>
+                          <td>{u.pollID.id}</td>
+                          <td>
+                            <a
+                              href={
+                                "https://ropsten.etherscan.io/address/" +
+                                u.pollID.eth.contractAddress
+                              }
+                              style={{ color: "#176075" }}
+                            >
+                              {u.pollID.eth.contractAddress}
+                            </a>
+                          </td>
+                          <td className="">
+                            {moment(u.pollID.startDate).format(
+                              "HH:mm DD/MM/YYYY"
+                            )}
+                          </td>
+                          <td className="">
+                            {moment(u.pollID.endDate).format(
+                              "HH:mm DD/MM/YYYY"
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                )}
               </CardBody>
             </Card>
           </Col>

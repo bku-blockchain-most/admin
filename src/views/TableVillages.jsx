@@ -9,20 +9,24 @@ import {
   Col
 } from "reactstrap";
 import { getVillages } from "../api";
+import HorizontalLoading from "../components/HorizontalLoading";
 
-const thead = ["", "Event", "Head", "Name", "Location"];
+const thead = ["Event", "Head", "Name", "Location"];
 
 class TableVillages extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      villages: []
+      villages: [],
+      loading: true
     };
 
-    getVillages()
-      .then(villages => this.setState({ villages }))
-      .catch(err => console.log(err));
+    setTimeout(() => {
+      getVillages()
+        .then(villages => this.setState({ villages, loading: false }))
+        .catch(err => console.log(err));
+    }, 200);
   }
 
   render() {
@@ -34,47 +38,48 @@ class TableVillages extends React.Component {
               <CardHeader>
                 <CardTitle tag="h4">Villages</CardTitle>
               </CardHeader>
-              <CardBody style={{ overflow: "auto", maxHeight: "80vh" }}>
-                <Table size="sm" hover>
-                  <thead className="text-danger">
-                    <tr>
-                      {thead.map(u => (
-                        <th key={u}>{u}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {this.state.villages.map(u => (
-                      <tr key={u.vid}>
-                        <td>
-                          {/* <Link to={"/villages/" + u.id}> */}
-                          <i className="fa fa-link text-danger" />
-                          {/* </Link> */}
-                        </td>
-                        <td>{u.event.id}</td>
-                        <td
-                          style={{
-                            maxWidth: 300,
-                            textOverflow: "ellipsis",
-                            overflow: "hidden"
-                          }}
-                        >
-                          {u.village_name}
-                        </td>
-                        <td
-                          style={{
-                            maxWidth: 300,
-                            textOverflow: "ellipsis",
-                            overflow: "hidden"
-                          }}
-                        >
-                          {u.village_head}
-                        </td>
-                        <td>{u.location}</td>
+              <CardBody style={{ overflow: "auto" }}>
+                <HorizontalLoading
+                  visible={this.state.loading}
+                  style={{ marginBottom: 30 }}
+                />
+                {!this.state.loading && (
+                  <Table size="sm" hover>
+                    <thead className="text-danger">
+                      <tr>
+                        {thead.map(u => (
+                          <th key={u}>{u}</th>
+                        ))}
                       </tr>
-                    ))}
-                  </tbody>
-                </Table>
+                    </thead>
+                    <tbody>
+                      {this.state.villages.map(u => (
+                        <tr key={u.vid}>
+                          <td>{u.event.id}</td>
+                          <td
+                            style={{
+                              maxWidth: 300,
+                              textOverflow: "ellipsis",
+                              overflow: "hidden"
+                            }}
+                          >
+                            {u.village_name}
+                          </td>
+                          <td
+                            style={{
+                              maxWidth: 300,
+                              textOverflow: "ellipsis",
+                              overflow: "hidden"
+                            }}
+                          >
+                            {u.village_head}
+                          </td>
+                          <td>{u.location}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                )}
               </CardBody>
             </Card>
           </Col>

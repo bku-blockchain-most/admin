@@ -249,7 +249,7 @@
     }
     &[data-color="black"]{
         // @include sidebar-color($dark-color); // override
-        @include sidebar-color(#2b2929);
+        @include sidebar-color(#1f1f1f);
     }
 
 
@@ -260,7 +260,7 @@
     }
     &[data-active-color="info"]{
         // @include sidebar-active-color($info-color); // override
-        @include sidebar-active-color(#fffb00);
+        @include sidebar-active-color(#ffa43c);
     }
     &[data-active-color="success"]{
         @include sidebar-active-color($success-color);

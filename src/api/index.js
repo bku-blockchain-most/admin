@@ -13,6 +13,11 @@ export const isAuthenticated = () => {
   return true;
 };
 
+export const logout = () => {
+  localStorage.removeItem("AUTH_TOKEN");
+  window.location.reload();
+};
+
 export const getToken = () => localStorage.getItem("AUTH_TOKEN");
 
 export const login = ({ username, password }) => {

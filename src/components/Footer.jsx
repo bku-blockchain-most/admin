@@ -18,7 +18,10 @@ class Footer extends React.Component {
                   <a href="https://github.com/bku-blockchain" target="_blank">Unite Stack</a>
                 </li>
                 <li>
-                  <a href="https://github.com/bku-blockchain/react-native" target="_blank">Android | iOS</a>
+                  <a href="https://github.com/bku-blockchain/react-native" target="_blank">App Store</a>
+                </li>
+                <li>
+                  <a href="https://github.com/bku-blockchain/react-native" target="_blank">Google Play</a>
                 </li>
                 <li>
                   <a href="http://lab.bkchain.tk/license" target="_blank">Licenses</a>

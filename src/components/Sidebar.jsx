@@ -4,7 +4,8 @@ import { Nav } from "reactstrap";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 
-import logo from "../assets/img/logo_white.png";
+import logo from "../assets/img/favicon.png";
+import brandname from "../assets/img/brand_name.png";
 
 var ps;
 
@@ -37,15 +38,25 @@ class Sidebar extends React.Component {
         data-color={this.props.bgColor}
         data-active-color={this.props.activeColor}
       >
-        <div className="logo">
+        <div className="logo" style={{ backgroundColor: "#f4f3ee" }}>
           <a href="http://lab.bkchain.tk" className="simple-text logo-mini">
             <div className="logo-img">
               <img src={logo} alt="lab-logo" />
             </div>
           </a>
           <a href="http://lab.bkchain.tk" className="simple-text logo-normal">
-            BKU Blockchain
+            <div className="logo-img">
+              <img src={brandname} alt="lab-logo" />
+            </div>
           </a>
+          {/* <a href="http://lab.bkchain.tk" className="simple-text logo-mini">
+            <div className="logo-img">
+              <img src={logo} alt="lab-logo" />
+            </div>
+          </a>
+          <a href="http://lab.bkchain.tk" className="simple-text logo-normal">
+            BKU Blockchain
+          </a> */}
         </div>
         <div className="sidebar-wrapper" ref="sidebar">
           <Nav>
