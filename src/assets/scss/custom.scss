@@ -1,8 +1,52 @@
 a {
-  text-decoration: none !important;
+    text-decoration: none !important;
 }
 
 .react-datepicker-wrapper {
-  input {
-  }
+    input {}
+}
+
+.login-page {
+    height: 100vh;
+    background: url('../img/bg03.jpg') no-repeat center;
+    background-size: cover;
+    .layer {
+        background-color: #000000a2;
+        height: 100vh;
+    }
+    form {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+        padding: 5px 20px 25px;
+        border-radius: 8px;
+        background-color: white;
+        h3 {
+            color: #273c9b;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+    }
+    .login-footer {
+      position: fixed;
+      bottom: 15px;
+      color: #bfbfbf;
+      width: 100%;
+      text-align: center;
+    }
+}
+
+.login-form-input-group {
+    position: relative;
+    input {
+        padding-left: 40px !important;
+    }
+    label {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%)
+    }
 }

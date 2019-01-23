@@ -1,9 +1,5 @@
 import Dashboard from "../layouts/Dashboard.jsx";
-import Login from "../layouts/Login.jsx";
 
-var indexRoutes = [
-  { path: "/login", name: "Login", component: Login },
-  { path: "/", name: "Home", component: Dashboard }
-];
+var indexRoutes = [{ path: "/", name: "Home", component: Dashboard }];
 
 export default indexRoutes;

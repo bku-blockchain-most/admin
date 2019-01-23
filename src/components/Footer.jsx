@@ -15,10 +15,10 @@ class Footer extends React.Component {
             <nav className="footer-nav">
               <ul>
                 <li>
-                  <a href="http://lab.bkchain.tk" target="_blank">BKU Blockchain</a>
+                  <a href="https://github.com/bku-blockchain" target="_blank">Unite Stack</a>
                 </li>
                 <li>
-                  <a href="https://blog.creative-tim.com" target="_blank">Blog</a>
+                  <a href="https://github.com/bku-blockchain/react-native" target="_blank">Android | iOS</a>
                 </li>
                 <li>
                   <a href="http://lab.bkchain.tk/license" target="_blank">Licenses</a>
@@ -27,7 +27,7 @@ class Footer extends React.Component {
             </nav>
             <div className="credits ml-auto">
               <div className="copyright">
-                &copy; {1900 + new Date().getYear()}, made with <i className="fa fa-heart heart"></i> by BKU Blockchain
+                All rights reserved &copy; {1900 + new Date().getYear()} made with <i className="fa fa-heart heart text-danger"></i> by BKU Blockchain Lab
               </div>
             </div>
           </Row>
